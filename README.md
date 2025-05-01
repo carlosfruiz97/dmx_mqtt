@@ -7,7 +7,6 @@ ToDo:
 - Gestionar fallo de conexion usb
 - Gestionar fallo de conexion mqtt
 - Control versiones
-- Poder mandar varios comandos dmx en un solo envio
 
 # Install and setup
 Clone repo and make install.sh runnable `chmod +x install.sh`
@@ -39,4 +38,24 @@ sudo systemctl restart dmx-mqtt
 
 
 
+
+# MQTT
+Subscribed to `{topic_head}/{topic_cmd}`
+payload
+```javascript
+{
+    "ch":1,
+    "val":100
+}
+```
+
+```javascript
+[
+    { "ch":1, "val":100 },
+    { "ch":2, "val":200 }
+]
+```
+
+
+Subscribe to `{topic_head}/{topic_clear}` to clear
 

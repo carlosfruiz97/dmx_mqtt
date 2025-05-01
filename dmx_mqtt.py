@@ -56,6 +56,15 @@ class DmxMqtt:
         client.subscribe(self.topic_cmd)
         client.subscribe(self.topic_clear)
 
+    def set_channel(self, data:dict):
+        try:
+            channel = int(data.get('ch'))
+            value = int(data.get('val'))
+            if 1 <= channel <= 512 and 0 <= value <= 255:
+                self.dmx_data[channel] = value
+        except:
+            print(f"Error processing {data}")
+
     def on_message(self, client, userdata, msg):
         topic = msg.topic
         payload = msg.payload.decode()
@@ -63,10 +72,12 @@ class DmxMqtt:
         if topic == self.topic_cmd:
             try:
                 data = json.loads(payload)
-                channel = int(data["channel"])
-                value = int(data["value"])
-                if 1 <= channel <= 512 and 0 <= value <= 255:
-                    self.dmx_data[channel] = value
+                if isinstance(data, dict):
+                    self.set_channel(data)
+                elif isinstance(data, list):
+                    for obj in data:
+                        self.set_channel(obj)
+
             except Exception as e:
                 print("Error processing /dmx/cmd message:", e)
 
