@@ -37,6 +37,11 @@ sudo systemctl restart dmx-mqtt
 ```
 
 
+Check logs
+```bash
+journalctl -u dmx-mqtt.service -f
+```
+
 
 
 # MQTT
