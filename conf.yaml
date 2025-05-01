@@ -1,0 +1,16 @@
+dmx_conf:
+  dmx_port: /dev/ttyUSB0
+  baudrate: 250000
+
+mqtt_conf:
+  broker: 192.168.1.100
+  port: 1883
+
+  topic_head: "dmx"
+  topic_cmd: "/cmd"
+  topic_clear: "/clear"
+  topic_state: "/state"
+
+  use_auth: False
+  mqtt_user: null
+  mqtt_pass: null
