@@ -4,6 +4,7 @@ import json
 import time
 import threading
 import yaml
+import sys
 
 class DmxMqtt:
     def __init__(self, yamlpath:str):
@@ -83,3 +84,12 @@ class DmxMqtt:
                 ser.write(self.dmx_data)
                 time.sleep(0.025)
 
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: python3 dmx_mqtt_bridge.py <config.yaml>")
+        sys.exit(1)
+
+    config_path = sys.argv[1]
+    dmx_mqtt = DmxMqtt(config_path)
+    dmx_mqtt.run()
