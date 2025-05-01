@@ -37,7 +37,7 @@ class DmxMqtt:
         self.mqtt_user:str = mqtt_conf.get('mqtt_user', False)
         self.mqtt_pass:str = mqtt_conf.get('mqtt_pass', False)
 
-        self.dmx_data = bytearray(513)  # 0th is start code, then 512 channels
+        self.dmx_data = bytearray([0] * 513)  # 0th is start code, then 512 channels
         
     def run(self):
         # === Start Everything ===
