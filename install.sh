@@ -31,13 +31,13 @@ if [ ! -d "$ENV_DIR" ]; then
 fi
 
 # === Install systemd service ===
-# SERVICE_FILE="/etc/systemd/system/$SERVICE_NAME.service"
-# TEMPLATE="dmx-mqtt.service.template"
+SERVICE_FILE="/etc/systemd/system/$SERVICE_NAME.service"
+TEMPLATE="dmx-mqtt.service.template"
 
-# echo "Creating systemd service at $SERVICE_FILE"
+echo "Creating systemd service at $SERVICE_FILE"
 
 # Replace placeholders
-# sudo bash -c "sed -e 's#__USER__#$USER_NAME#g' -e 's#__WORKDIR__#$REPO_DIR#g' $TEMPLATE > $SERVICE_FILE"
+sudo bash -c "sed -e 's#__USER__#$USER_NAME#g' -e 's#__WORKDIR__#$REPO_DIR#g' $TEMPLATE > $SERVICE_FILE"
 
 
 echo "✅ Installed $SERVICE_NAME."
