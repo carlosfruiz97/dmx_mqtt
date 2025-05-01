@@ -1,0 +1,15 @@
+[Unit]
+Description=DMX MQTT Bridge
+After=network.target
+
+[Service]
+Type=simple
+Restart=on-failure
+RestartSec=30
+User=__USER__
+WorkingDirectory=__WORKDIR__
+ExecStart=__WORKDIR__/dmx-env/bin/python __WORKDIR__/dmx_mqtt.py __WORKDIR__/conf.yaml
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
