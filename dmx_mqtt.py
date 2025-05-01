@@ -9,7 +9,7 @@ import sys
 class DmxMqtt:
     def __init__(self, yamlpath:str):
         with open(yamlpath, 'r') as file:
-            conf:dict = yaml.load(yamlpath)
+            conf:dict = yaml.safe_load(yamlpath)
 
         dmx_conf:dict = conf.get('dmx_conf')
         self.dmx_port:str = dmx_conf.get('dmx_port')
