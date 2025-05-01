@@ -3,6 +3,7 @@ Script python para controlar un usb dmx a traves de una conexión mqtt
 
 
 ```bash
+cd ~
 git clone https://github.com/carlosfruiz97/dmx_mqtt.git 
 ```
 
@@ -12,6 +13,7 @@ python -m venv ~/dmx-env
 ~/dmx-env/bin/pip install paho-mqtt
 ~/dmx-env/bin/pip install pyserial
 ~/dmx-env/bin/pip install pyyaml
+cp ~/dmx_mqtt/conf_template.yaml ~/dmx_mqtt/conf.yaml
 ```
 
 ```bash

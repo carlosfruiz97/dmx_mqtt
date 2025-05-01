@@ -24,9 +24,11 @@ class DmxMqtt:
 
         self.topic_cmd:str = mqtt_conf.get('topic_cmd')
         self.topic_cmd = topic_head + self.topic_cmd.strip('/')
+        print(f"Subscribing to {self.topic_cmd}")
 
         self.topic_clear:str = mqtt_conf.get('topic_clear')
         self.topic_clear = topic_head + self.topic_clear.strip('/')
+        print(f"Subscribing to {self.topic_clear}")
 
         self.topic_state:str = mqtt_conf.get('topic_state')
         self.topic_state = topic_head + self.topic_state.strip('/')
